@@ -1,0 +1,113 @@
+.game-page {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+    --maxw: 820px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content(75%) auto;
+    grid-template-areas: 'monitor''game';
+    grid-gap: 1rem;
+    overflow-x: hidden;
+    padding: calc(var(--bs-gutter-y) * 0.5) calc(var(--bs-gutter-x) * 0.5);
+}
+
+.monitor {
+    grid-area: monitor;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-monitor {
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-width: var(--maxw, 820px);
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url('./img/s2/1/8.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.game-ctrl {
+    grid-area: game;
+    align-self: center;
+    position: relative;
+    overflow: auto;
+
+    >* {
+        width: 100%;
+        max-width: var(--maxw, 820px);
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+figure {
+    margin-bottom: 0;
+}
+
+
+#guy {
+    width: 130px;
+    height: 180px;
+    background: url('./img/aiko.png');
+
+    /* width: 200px;
+    height: 200px;
+    background: url('./morris.png'); */
+}
+
+#block {
+    position: absolute;
+    display: inline-block;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    animation: block 2.5s infinite linear;
+}
+
+@keyframes block {
+    0% {
+        left: -130px;
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+/* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/160783/morris.png'); */
+
+
+#guy.run,
+#guy:hover {
+    /* -webkit-animation: animGuy 0.8s steps(10) forwards; */
+    -webkit-animation: animGuy 0.8s steps(10) infinite;
+}
+
+/* -webkit-animation: play .8s steps(10) infinite;
+       -moz-animation: play .8s steps(10) infinite;
+        -ms-animation: play .8s steps(10) infinite;
+         -o-animation: play .8s steps(10) infinite;
+            animation: play .8s steps(10) infinite; */
+@-webkit-keyframes animGuy {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: -1300px;
+    }
+}

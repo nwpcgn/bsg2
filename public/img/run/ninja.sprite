@@ -1,0 +1,13 @@
+{
+   "style_name": "aiko_ani",
+   "folder": "",
+   "orientation": "horizontal",
+   "padding": 0,
+   "custom_styles": {
+      "display": "inline-block"
+   },
+   "stylesheet": "scss",
+   "path_prefix": "",
+   "output": "png",
+   "enable_cache_busting": true
+}

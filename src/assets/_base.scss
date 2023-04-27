@@ -1,0 +1,33 @@
+/* :root {
+    --app-bg: #ffffff;
+    --app-color: #374151;
+    --main-content-my: 1.5rem;
+    --space-py: 1rem;
+    --space-px: 1rem;
+    --fb-gap: 0.5rem;
+} */
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--app-color);
+    background-color: var(--app-bg);
+    overscroll-behavior: none;
+}
+
+body {
+    position: relative;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+}

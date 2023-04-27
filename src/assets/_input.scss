@@ -1,0 +1,78 @@
+@import "var";
+$pixel-scale: 2px;
+
+section.buttons,
+ul.buttons {
+    a.button,
+    a.button:hover,
+    a.button:active {
+        color: $contrast;
+        text-decoration: none;
+    }
+
+    button,
+    .button {
+        position: relative;
+        font-family: $font-content;
+        font-size: 1em;
+        background: none;
+        border: none;
+        padding: 0 0 0 $padding;
+        text-transform: uppercase;
+        text-align: left;
+        cursor: pointer;
+
+        &.active::before,
+        &:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -2px;
+
+            @include arrow-right;
+        }
+
+        &.pokemon {
+            --bg6: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAABoSURBVChTnY0xFsAgDEJzBMde0DNk6OHTl4GUoungwFPhg3aNEanbfUaEqZCldlwB3Uj6rKOB9DumfgDEYYpL7QCX8daTM/aXVS1CyDQ3BhSCxxnKNfAH6Qg8zj9lho4HAEC77L37fADeSVIEvrov7gAAAABJRU5ErkJggg==);
+            text-indent: -1000em;
+            width: 100%;
+            background: var(--bg6, url('./img/pkmn.png')) 1em center no-repeat;
+            background-size: contain;
+        }
+
+        &.active {
+            color: var(--bs-primary);
+        }
+
+        &.pokemon {
+            --bg6: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAABoSURBVChTnY0xFsAgDEJzBMde0DNk6OHTl4GUoungwFPhg3aNEanbfUaEqZCldlwB3Uj6rKOB9DumfgDEYYpL7QCX8daTM/aXVS1CyDQ3BhSCxxnKNfAH6Qg8zj9lho4HAEC77L37fADeSVIEvrov7gAAAABJRU5ErkJggg==);
+            text-indent: -1000em;
+            width: 100%;
+            background: var(--bg6, url('./img/pkmn.png')) 1em center no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+ul.buttons {
+    display: inline-flex;
+    padding: 0;
+    list-style: none;
+    flex-direction: column;
+
+    li {
+        padding: 0;
+        margin: 0.5em;
+    }
+
+    &.compact {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        & li {
+            flex-basis: 45%;
+        }
+    }
+
+
+}

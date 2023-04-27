@@ -1,0 +1,195 @@
+// @import "var";
+$padding: 1rem;
+$small-modifier: 0.5;
+
+@font-face {
+    font-family: "Pokemon GB";
+    src: url("fonts/Pokemon GB.woff") format('woff');
+    src: url("fonts/Pokemon GB.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "Press Start 2P";
+    src: url("fonts/PressStart2P-Regular.woff") format('woff');
+    src: url("fonts/PressStart2P-Regular.ttf") format('truetype');
+}
+
+$font-content: 'Pokemon GB';
+$font-heading: 'Press Start 2P';
+
+.gb {
+    font-family: $font-content;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    image-rendering: pixelated;
+}
+
+.framed {
+    min-width: var(--gb-min-w, 320px);
+    image-rendering: pixelated;
+    overflow-x: hidden;
+}
+
+.framed {
+    --bg1: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAMAAAAPdrEwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURQAAABgQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMM8PuMAAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGHRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4xLjVkR1hSAAAA5UlEQVRoQ+3MQQrDMBBD0fb+h06N/2A+MTHdTtBbKRpHn0u+UtUf6oepqinTQ1VT62kfyNgbuHcGTaYXmqbT9XXEU6vDUaZvWk/XHxtfn/KOa6YXrk2n/UGGG7K5J8NNpgc3rafBAW7I5p4MGmR6oMFrpvf8xG+ckemV0XraB+czv3RGpldG62n47PzEb5yR6ZXxmmm4IZt7MmiQ6YEGrad9IGNv4N4ZNJleaJpO19cRT60OR5m+aT1df2x8fco7rpleuDad9gcZbsjmngw3mR7ctJ4GB1T1h/phqmrK9FDV1HH6un4ss9jsFZtJkQAAAABJRU5ErkJggg==);
+    --bg2: url(./img/frame-hd.png);
+    --bg3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAB7SURBVDhPhYxBDgRBCALnCXPc/3/UCZ3QKQ1mDxUR0KeqDr/3LeE9MTvX9JyaO33pViIKTcrF/TjLaZJzbEHT09Cnbp9SkTs7IhbskZSvwWQ9prk9+Hu8PaDPbA2tudOXbiWi0KRc3I+znCY5xxY0PQ196vaJhUTv1PMB8FbyoeIa680AAAAASUVORK5CYII=);
+    --bg4: url(./img/frame.png);
+    position: relative;
+    border-image: var(--bg1) 42 round;
+    border-width: 21px;
+    border-style: solid;
+    padding: calc(var(--gb-px, 1rem) * 0.5);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+
+    &.small {
+        border-image: var(--bg3) 7 round;
+        border-width: 7px;
+    }
+
+    >legend {
+        padding: 0;
+        margin-top: -0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .msg {
+        position: absolute;
+        inset: 0;
+        overflow: auto;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .framed {
+        padding: $padding * $small-modifier;
+        margin: $padding * $small-modifier 0 0 0;
+    }
+}
+
+
+
+
+// @import "gb/input";
+.gb-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-x: hidden;
+    /*   align-items: start; */
+}
+
+@media only screen and (min-width:768px) {
+    .gb-wrapper {
+        flex-direction: row;
+    }
+}
+
+
+.gb-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: start;
+    overflow-x: hidden;
+
+    &.compact {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: start;
+
+        >* {
+            flex-basis: calc(50% - 1rem);
+        }
+    }
+
+    button,
+    .button {
+        display: inline-flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: transparent;
+        border-color: transparent;
+        color: var(--bs-gray-700);
+
+        svg {
+            visibility: hidden;
+        }
+
+
+        &:hover:not(.active):not(.text) {
+            svg {
+                visibility: visible;
+            }
+        }
+
+        &:active,
+        &.active {
+            background-color: transparent;
+            border-color: transparent;
+            color: var(--bs-gray-800);
+
+            svg {
+                visibility: visible;
+            }
+        }
+
+        &.enable {
+            color: var(--bs-primary);
+            svg {
+                visibility: visible;
+            }
+        }
+    }
+
+
+
+}
+
+
+
+
+.gb-menu.compact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+
+    >* {
+        flex-basis: calc(50% - 1rem);
+    }
+}
+
+
+
+/* .gb-menu button {
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    border-color: transparent;
+}
+ */
+/* .gb-menu button.active,
+.gb-menu button:active,
+.gb-menu button:hover {
+    background-color: transparent;
+    border-color: transparent;
+} */
+
+/* .gb-menu button.active>svg,
+.gb-menu button:active>svg,
+.gb-menu button:hover>svg {
+    visibility: visible;
+}
+
+.gb-menu button>svg {
+    visibility: hidden;
+    transition: visibility 250ms ease-in-out;
+} */

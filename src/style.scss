@@ -1,0 +1,20 @@
+:root {
+    --app-bg: #ffffff;
+    --app-color: #374151;
+    --main-content-my: 1.5rem;
+    --space-py: 1rem;
+    --space-px: 1rem;
+    --fb-gap: 0.5rem;
+}
+
+@import "base";
+@import "layer";
+@import "bar";
+@import "list";
+
+// @import "animate";
+// @import "page";
+
+
+
+

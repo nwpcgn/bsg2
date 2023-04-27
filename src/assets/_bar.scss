@@ -1,0 +1,32 @@
+.flex-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: var(--fb-gap, 0.5rem);
+}
+
+button.blank,
+button.icon {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: var(--fb-icon-p, 0.2rem);
+    background-color: transparent;
+    color: currentColor;
+    border-color: transparent;
+    outline: 0;
+}
+
+button.icon {
+    font-size: var(--fb-icon-fs, 1rem);
+    line-height: 1;
+}
+
+.flex-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
